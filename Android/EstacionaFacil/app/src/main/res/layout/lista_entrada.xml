@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/placa"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="30dp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="JFH-4452"
+                android:textSize="23sp"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/modelo"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="30dp"
+                android:textAlignment="center"
+                android:text="Gol"
+                android:textSize="23sp"
+                android:layout_marginLeft="15dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Entrada:"
+                android:textColor="@color/colorBlack"/>
+            <TextView
+                android:id="@+id/hora_entrada"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="30dp"
+                android:textSize="15sp"
+                android:text=" 16:04"
+                android:paddingTop="5dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/botao_saida"
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:layout_height="60dp"
+        android:background="@drawable/ic_sair" />
+
+
+
+</LinearLayout>
