@@ -2,20 +2,20 @@ package br.senai.sp.estacionafacil.modelo;
 
 public class Movimentacao {
 
-    private int codEntrada;
+    private int codMovimento;
     private String placa;
-    private String horaEntrada;
-    private String horaSaida;
+    private String dataHoraEntrada;
+    private String dataHoraSaida;
     private String modeloCarro;
-    private Integer tempoPermitido;
+    private Integer tempoPermanecia;
     private Double valorPago;
 
-    public int getCodEntrada() {
-        return codEntrada;
+    public int getCodMovimento() {
+        return codMovimento;
     }
 
-    public void setCodEntrada(int codEntrada) {
-        this.codEntrada = codEntrada;
+    public void setCodMovimento(int codMovimento) {
+        this.codMovimento = codMovimento;
     }
 
     public String getPlaca() {
@@ -26,28 +26,28 @@ public class Movimentacao {
         this.placa = placa;
     }
 
-    public String getHoraEntrada() {
-        return horaEntrada;
+    public String getDataHoraEntrada() {
+        return dataHoraEntrada;
     }
 
-    public void setHoraEntrada(String horaEntrada) {
-        this.horaEntrada = horaEntrada;
+    public void setDataHoraEntrada(String dataHoraEntrada) {
+        this.dataHoraEntrada = dataHoraEntrada;
     }
 
-    public String getHoraSaida() {
-        return horaSaida;
+    public String getDataHoraSaida() {
+        return dataHoraSaida;
     }
 
-    public void setHoraSaida(String horaSaida) {
-        this.horaSaida = horaSaida;
+    public void setDataHoraSaida(String dataHoraSaida) {
+        this.dataHoraSaida = dataHoraSaida;
     }
 
-    public Integer getTempoPermitido() {
-        return tempoPermitido;
+    public Integer getTempoPermanecia() {
+        return tempoPermanecia;
     }
 
-    public void setTempoPermitido(Integer tempoPermitido) {
-        this.tempoPermitido = tempoPermitido;
+    public void setTempoPermanecia(Integer tempoPermanecia) {
+        this.tempoPermanecia = tempoPermanecia;
     }
 
     public Double getValorPago() {
@@ -69,9 +69,8 @@ public class Movimentacao {
     @Override
     public String toString() {
         return "Movimentacao{" +
-                "codEntrada=" + codEntrada +
+                "codMovimento=" + codMovimento +
                 ", placa='" + placa + '\'' +
-                ", horaEntrada='" + horaEntrada + '\'' +
-                '}';
+                ", dataHoraEntrada='" + dataHoraEntrada + '}';
     }
 }

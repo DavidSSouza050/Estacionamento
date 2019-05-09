@@ -8,9 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import br.senai.sp.estacionafacil.tasks.CarregarListaMovimentos;
+
 public class MainActivity extends AppCompatActivity {
     private ImageButton btnEnviarCadastro;
     private ListView listaEstacionamento;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,20 +27,16 @@ public class MainActivity extends AppCompatActivity {
         btnEnviarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent irCadastro = new Intent(MainActivity.this, CadastroActivity.class);
-                startActivity(irCadastro);
+                Intent abrirCadastro = new Intent(MainActivity.this, CadastroActivity.class);
+                startActivity(abrirCadastro);
             }
         });
+    }
 
-
-
-        //criando lista para exbição da lista
-        String[] carros = {"AHD-4532", "SED-1652", "WOD-1358", "PDF-3549"};
-
-        ArrayAdapter<String> carrosAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, carros);
-        listaEstacionamento.setAdapter(carrosAdapter);
-
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        CarregarListaMovimentos carregarLista = new CarregarListaMovimentos(this);
+        carregarLista.execute();
     }
 }

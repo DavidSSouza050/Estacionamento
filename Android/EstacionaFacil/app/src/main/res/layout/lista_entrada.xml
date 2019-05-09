@@ -29,7 +29,6 @@
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="30dp"
-                android:textAlignment="center"
                 android:text="Gol"
                 android:textSize="23sp"
                 android:layout_marginLeft="15dp"/>
@@ -40,19 +39,19 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.2"
-                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="30dp"
                 android:paddingLeft="20dp"
                 android:text="Entrada:"
-                android:textColor="@color/colorBlack"/>
+                android:textColor="@color/colorBlack"
+                android:paddingTop="5dp"/>
             <TextView
                 android:id="@+id/hora_entrada"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
+                android:layout_weight="3"
                 android:layout_height="30dp"
                 android:textSize="15sp"
-                android:text=" 16:04"
-                android:paddingTop="5dp">
+                android:text=" 16:04">
 
             </TextView>
 
