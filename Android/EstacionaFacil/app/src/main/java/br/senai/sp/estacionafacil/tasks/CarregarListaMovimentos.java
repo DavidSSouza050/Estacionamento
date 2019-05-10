@@ -19,6 +19,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.senai.sp.estacionafacil.MainActivity;
+import br.senai.sp.estacionafacil.R;
 import br.senai.sp.estacionafacil.modelo.Movimentacao;
 
 public class CarregarListaMovimentos extends AsyncTask {
@@ -37,7 +39,8 @@ public class CarregarListaMovimentos extends AsyncTask {
     protected Object doInBackground(Object[] objects) {
 
         try {
-            URL url = new URL("http://192.168.15.9:8080/movimentacoes/estacionados");
+            //URL url = new URL("http://"+R.string.ip_server+":8080/movimentacoes/estacionados");
+            URL url = new URL("http://10.107.144.27:8080/movimentacoes/estacionados");
             HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
             InputStream dadosStream = conexao.getInputStream();
             InputStreamReader leitorStream = new InputStreamReader(dadosStream);
@@ -89,10 +92,13 @@ public class CarregarListaMovimentos extends AsyncTask {
         progressDialog.show();
     }
 
+
     @Override
-    protected void onProgressUpdate(Object[] values) {
-        super.onProgressUpdate(values);
+    protected void onPostExecute(Object o) {
+        super.onPostExecute(o);
+
         adapter = new ArrayAdapter<Movimentacao>(context, android.R.layout.simple_list_item_1, movimentos);
+        MainActivity.listaEstacionamento.setAdapter(adapter);
         progressDialog.dismiss();
     }
 }

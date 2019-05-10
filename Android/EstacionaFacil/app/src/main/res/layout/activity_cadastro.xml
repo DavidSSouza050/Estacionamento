@@ -51,6 +51,7 @@
 
 
     <Button
+        android:id="@+id/gravar_carro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar"

@@ -1,6 +1,8 @@
 package br.senai.sp.estacionafacil.modelo;
 
-public class Movimentacao {
+import java.io.Serializable;
+
+public class Movimentacao implements Serializable {
 
     private int codMovimento;
     private String placa;
@@ -68,9 +70,6 @@ public class Movimentacao {
 
     @Override
     public String toString() {
-        return "Movimentacao{" +
-                "codMovimento=" + codMovimento +
-                ", placa='" + placa + '\'' +
-                ", dataHoraEntrada='" + dataHoraEntrada + '}';
+        return codMovimento + " - " + placa + " - " + modeloCarro;
     }
 }

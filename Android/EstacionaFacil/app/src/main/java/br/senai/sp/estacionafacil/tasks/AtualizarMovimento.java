@@ -12,42 +12,46 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-import br.senai.sp.estacionafacil.R;
 import br.senai.sp.estacionafacil.modelo.Movimentacao;
 
-public class GravarMovimento extends AsyncTask {
+public class AtualizarMovimento extends AsyncTask {
 
     private Movimentacao movimento;
+    private String resposta = "";
 
-    public GravarMovimento(Movimentacao movimento) {
+    public AtualizarMovimento(Movimentacao movimento) {
         this.movimento = movimento;
     }
 
     @Override
     protected Object doInBackground(Object[] objects) {
-
         JSONStringer jsonContato = new JSONStringer();
 
         try {
             jsonContato.object();
+            jsonContato.key("codMovimento").value(movimento.getCodMovimento());
             jsonContato.key("placa").value(movimento.getPlaca());
             jsonContato.key("modeloCarro").value(movimento.getModeloCarro());
-            jsonContato.key("tempoPermanencia").value(0);
-            jsonContato.key("valorPago").value(0);
+            jsonContato.key("dataHoraEntrada").value(movimento.getDataHoraEntrada());
+            jsonContato.key("dataHoraSaida").value(movimento.getDataHoraSaida());
+            jsonContato.key("tempoPermanencia").value(movimento.getTempoPermanecia());
+            jsonContato.key("valorPago").value(movimento.getValorPago());
             jsonContato.endObject();
 
-            URL url = new URL("http://10.107.144.27:8080/movimentacoes");
+            URL url = new URL("http://10.107.144.27:8080/movimentacoes/saida/"+movimento.getCodMovimento());
             HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+
             conexao.setRequestProperty("Content-type", "application/json");
             conexao.setRequestProperty("Accept", "application/json");
-            conexao.setRequestMethod("POST");
+            conexao.setRequestMethod("PUT");
             conexao.setDoInput(true);
             PrintStream output = new PrintStream(conexao.getOutputStream());
             output.print(jsonContato);
             conexao.connect();
             Scanner scanner = new Scanner(conexao.getInputStream());
-            String resposta = scanner.nextLine();
+            resposta = scanner.nextLine();
 
+            return null;
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -94,6 +94,8 @@ public class MovimentacaoResource {
 		movimento.setTempoPermanencia(tempoMinutos);
 		movimento.setValorPago(valorAPagar);
 		
+		System.out.println("VALOR "+valorAPagar);
+		
 		return moveRepository.findById(id).get();
 	}
 
@@ -103,8 +105,13 @@ public class MovimentacaoResource {
 			@PathVariable Long id){
 		
 		Movimentacao movimentoSalvo = moveRepository.findById(id).get();
+		System.out.println("---->"+movimentoSalvo.getCodMovimento());
 		
 		BeanUtils.copyProperties(movimento, movimentoSalvo, "id");
+		
+		moveRepository.save(movimento);
+		
+//		System.out.println("Valor "+movimentoSalvo.getValorPago());
 		
 		return ResponseEntity.ok(movimentoSalvo);
 	}

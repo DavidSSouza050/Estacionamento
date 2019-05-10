@@ -24,7 +24,7 @@ public class CalculoPreco {
 		if(tempoMinutos > tempoTolerancia) {
 			valorAPagar = precoHora1;
 			tempoMinutos -= 60;
-			tempoTolerancia += 60;
+//			tempoTolerancia += 60;
 			for(int i = tempoTolerancia; i < tempoMinutos; i += 60) {
 				valorAPagar += precoDemaisHoras;
 			}
