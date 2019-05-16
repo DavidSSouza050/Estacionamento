@@ -1,8 +1,30 @@
 DESC tbl_movimentacao;
 DESC tbl_preco;
+DESC tbl_fabricante;
+DESC tbl_veiculo;
 
 SELECT * FROM tbl_movimentacao;
 SELECT * FROM tbl_preco;
+SELECT * FROM tbl_fabricante;
+SELECT * FROM tbl_veiculo;
+
+CREATE TABLE tbl_veiculo (cod_veiculo INT NOT NULL auto_increment primary KEY,
+placa varchar(7) NOT NULL, 
+modelo_carro VARCHAR(30) NOT NULL,
+cod_fabricante INT NOT NULL,
+CONSTRAINT ('fk_veiculo_fabricante') FOREIGN KEY (cod_fabricante) REFERENCES tbl_fabricante (cod_fabricante)
+);
+
+CREATE TABLE tbl_fabricante (
+	cod_fabricante INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR (30) NOT NULL
+);
+
+INSERT INTO tbl_fabricante values (1, 'Volkswagen');
+INSERT INTO tbl_fabricante values (2, 'MAZDA');
+INSERT INTO tbl_fabricante values (3, 'MUSTANG');
+INSERT INTO tbl_veiculo values (1, 'ABC1234', 'FUSCA', 1);
+INSERT INTO tbl_veiculo values (2, 'AAD1245', 'GOL', 1);
 
 INSERT INTO tbl_preco (valor_primeira_hora, valor_demais_horas, tempo_tolerancia)
 VALUES (5, 3, 5);
